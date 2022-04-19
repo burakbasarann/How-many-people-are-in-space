@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Сколько людей в космосе?</string>
+    <string name="detayl_bilgi">Дополнительная информация</string>
+    <string name="space">Космос</string>
+    <string name="suan_uzayda_kac_insan_var">Сколько людей в космосе?</string>
+    <string name="gemi_adi">Название судна</string>
+    <string name="insan_adi">Человеческое имя</string>
+</resources>

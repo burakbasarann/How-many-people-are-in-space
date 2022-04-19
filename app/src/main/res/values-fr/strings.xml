@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Combien y a-t-il de personnes dans l\'espace ?</string>
+    <string name="detayl_bilgi">Plus d\'information.</string>
+    <string name="space">Espace</string>
+    <string name="suan_uzayda_kac_insan_var">Combien y a-t-il de personnes dans l\'espace ?</string>
+    <string name="gemi_adi">Nom de bateau</string>
+    <string name="insan_adi">Nom humain</string>
+</resources>

@@ -6,26 +6,27 @@ import androidx.recyclerview.widget.RecyclerView
 import com.basaran.howmanypeopleinspace.databinding.SpaceItemBinding
 import com.basaran.howmanypeopleinspace.model.PeopleModel
 
-class SpaceAdapter(private var spaceList: ArrayList<PeopleModel>) :
+class SpaceAdapter(private var spaceList: List<PeopleModel>) :
     RecyclerView.Adapter<SpaceAdapter.MyViewHolder>() {
 
-    class MyViewHolder(val spaceitembinding: SpaceItemBinding) :
-        RecyclerView.ViewHolder(spaceitembinding.root)
+    inner class MyViewHolder(spaceItemBinding: SpaceItemBinding) : RecyclerView.ViewHolder(spaceItemBinding.root){
+        var spaceItemBinding: SpaceItemBinding
+        init {
+            this.spaceItemBinding = spaceItemBinding
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
-        val spaceitembinding = SpaceItemBinding.inflate(layoutInflater,parent,false)
-        return MyViewHolder(spaceitembinding)
+        val spaceItemBinding = SpaceItemBinding.inflate(layoutInflater,parent,false)
+        return MyViewHolder(spaceItemBinding)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val space = spaceList[position]
+        val space = spaceList.get(position)
+        val t = holder.spaceItemBinding
+        t.spaceList = space
 
-        holder.spaceitembinding.apply {
-            txtcraft.text = "Uzay Aracı : "+space.craft
-            txtad.text = "Astronot : "+space.name
-
-        }
     }
 
     override fun getItemCount(): Int {

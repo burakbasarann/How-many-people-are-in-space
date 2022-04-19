@@ -1,34 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_margin="4dp"
-    app:cardCornerRadius="20dp"
-    android:backgroundTint="@color/anaRenk"
-    app:cardElevation="20dp">
-    <LinearLayout
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="spaceList" type="com.basaran.howmanypeopleinspace.model.PeopleModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/txtcraft"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:textColor="@color/arkaplan"
-            android:text="AAA"
-            android:textSize="18sp" />
-        <TextView
-            android:id="@+id/txtad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="12dp"
-            android:textColor="@color/arkaplan"
-            android:text="AAA"
-            android:textSize="18sp" />
-    </LinearLayout>
+        android:layout_margin="4dp"
+        app:cardCornerRadius="20dp"
+        android:backgroundTint="@color/anaRenk"
+        app:cardElevation="20dp">
 
-</androidx.cardview.widget.CardView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtcraft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/arkaplan"
+                android:text='@{@string/gemi_adi+" : "+spaceList.craft}'
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txtad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="12dp"
+                android:textColor="@color/arkaplan"
+                android:text='@{@string/insan_adi+" : "+spaceList.name}'
+                android:textSize="18sp" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>

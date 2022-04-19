@@ -1,47 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.SecondFragment"
-    android:background="@drawable/spaceimage">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- TODO: Update blank fragment layout -->
-    <LinearLayout
+    <data>
+        <variable name="secondAdapter" type="com.basaran.howmanypeopleinspace.adapter.SpaceAdapter" />
+        <variable name="secondFragment" type="com.basaran.howmanypeopleinspace.ui.SecondFragment" />
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        tools:context=".ui.SecondFragment"
+        android:background="@drawable/spaceimage">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" >
+        <!-- TODO: Update blank fragment layout -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imghome"
-            android:layout_marginLeft="20dp"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_home_24"/>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/colorPrimary"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="@color/arkaplan"
-            android:fontFamily="@font/pacifico"
-            android:text="Space"
-            android:textSize="26sp" />
+                <ImageView
+                    android:id="@+id/imghome"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="30dp"
+                    android:onClick="@{() -> secondFragment.imageClickSecondFragmentToHomeFragment()}"
+                    android:layout_height="30dp"
+                    android:src="@drawable/ic_baseline_home_24" />
 
-    </androidx.appcompat.widget.Toolbar>
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/arkaplan"
+                    android:fontFamily="@font/pacifico"
+                    android:text="@string/space"
+                    android:textSize="26sp" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
-    </LinearLayout>
-</FrameLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview"
+                android:layout_width="match_parent"
+                android:adapter="@{secondAdapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+    </FrameLayout>
+</layout>

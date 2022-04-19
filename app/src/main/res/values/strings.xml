@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">How Many People In Space</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="app_name">Uzayda Kaç İnsan Var</string>
+    <string name="detayl_bilgi">Detaylı Bilgi</string>
+    <string name="space">Uzay</string>
+    <string name="suan_uzayda_kac_insan_var">Şuan Uzayda Kaç İnsan Var ?</string>
+    <string name="gemi_adi">Gemi Adı</string>
+    <string name="insan_adi">İnsan Adı</string>
 </resources>

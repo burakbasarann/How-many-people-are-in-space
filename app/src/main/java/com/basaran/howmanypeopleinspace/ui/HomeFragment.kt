@@ -5,83 +5,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import com.basaran.howmanypeopleinspace.R
-import com.basaran.howmanypeopleinspace.data.remote.APIService
-import com.basaran.howmanypeopleinspace.data.remote.RetrofitClient
-import com.basaran.howmanypeopleinspace.data.remote.regres.SpaceListResponse
 import com.basaran.howmanypeopleinspace.databinding.FragmentHomeBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import dagger.hilt.android.AndroidEntryPoint
 
 
-
-
-
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var viewModel: HomePageViewModel
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container, false)
+        binding.homePageObj = this
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
-
-
-        val retrofit = RetrofitClient.getRetrofitClient()
-        val apiService = retrofit.create(APIService::class.java)
-        val callSpaceList = apiService.getSpaceList()
-
-        callSpaceList.enqueue(object : Callback<SpaceListResponse> {
-            override fun onResponse(
-                call: Call<SpaceListResponse>,
-                response: Response<SpaceListResponse>
-            ) {
-                val number = response.body()?.number.toString()
-                binding.txtnumber.text = number
-            }
-
-            override fun onFailure(call: Call<SpaceListResponse>, t: Throwable) {
-            }
-
+        viewModel.spaceNumber.observe(viewLifecycleOwner, {
+            binding.txtnumber.text = it.toString()
         })
-
 
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.btnDetay.setOnClickListener {
-
-/*
-            val fragment = SecondFragment()
-            val transaction = requireActivity().supportFragmentManager.beginTransaction()
-            transaction?.replace(R.id.fragmentContainerView,fragment)?.addToBackStack("MALES")
-                ?.commit()
-
- */
-
-            findNavController().navigate(R.id.action_homeFragment_to_secondFragment)
-
-/*
-            val nextaction = HomeFragmentDirections.actionHomeFragmentToSecondFragment()
-            Navigation.findNavController(it).navigate(nextaction)
-
- */
-        }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val tempViewModel: HomePageViewModel by viewModels()
+        viewModel = tempViewModel
+        setHasOptionsMenu(true)
     }
 
 
-
-
+    fun buttonHomeFragmentToSecondFragment(){
+        Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_secondFragment)
+    }
 }

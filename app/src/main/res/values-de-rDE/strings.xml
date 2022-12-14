@@ -4,6 +4,6 @@
     <string name="suan_uzayda_kac_insan_var">Wie viele Menschen sind im Weltraum?</string>
     <string name="detayl_bilgi">Mehr Informationen</string>
     <string name="space">Platz</string>
-    <string name="gemi_adi">Schiffsname</string>
-    <string name="insan_adi">Menschlicher Name</string>
+    <string name="gemi_adi">Schiffsname : %s</string>
+    <string name="insan_adi">Menschlicher Name : %s</string>
 </resources>

@@ -1,19 +1,15 @@
 package com.basaran.howmanypeopleinspace.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.databinding.DataBindingUtil
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
 import com.basaran.howmanypeopleinspace.R
 import com.basaran.howmanypeopleinspace.databinding.FragmentCraftInfoBinding
-import com.basaran.howmanypeopleinspace.databinding.FragmentHomeBinding
 
 
 class CraftInfoFragment : Fragment() {
@@ -67,6 +63,7 @@ class CraftInfoFragment : Fragment() {
         return view
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     fun clickListenerrr(girilecekUrl : String){
         binding.webView.webViewClient =object : WebViewClient(){
             override fun shouldOverrideUrlLoading(view: WebView?, request: String?): Boolean {

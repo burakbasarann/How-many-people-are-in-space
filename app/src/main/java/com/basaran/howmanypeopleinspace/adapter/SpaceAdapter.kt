@@ -1,17 +1,16 @@
 package com.basaran.howmanypeopleinspace.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.basaran.howmanypeopleinspace.R
-import com.basaran.howmanypeopleinspace.databinding.SpaceItemBinding
 import com.basaran.howmanypeopleinspace.model.CraftInfo
 import com.basaran.howmanypeopleinspace.model.PeopleModel
 
-class SpaceAdapter(private var spaceList: List<PeopleModel>, private val listener: CraftInfo) :
+class SpaceAdapter(private var spaceList: List<PeopleModel>, private val listener: CraftInfo, var context : Context) :
     RecyclerView.Adapter<SpaceAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), View.OnClickListener{
@@ -37,9 +36,8 @@ class SpaceAdapter(private var spaceList: List<PeopleModel>, private val listene
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val space = spaceList.get(position)
-        holder.craftName1.text = "Craft Name = "+space.craft
-        holder.peopleName2.text = "Space Name = "+ space.name
-
+        holder.craftName1.text = context.getString(R.string.gemi_adi, space.craft)
+        holder.peopleName2.text = context.getString(R.string.insan_adi, space.name)
     }
 
     override fun getItemCount(): Int {

@@ -4,6 +4,6 @@
     <string name="suan_uzayda_kac_insan_var">How Many People In Space</string>
     <string name="space">Space</string>
     <string name="detayl_bilgi">More information.</string>
-    <string name="gemi_adi">Craft Name</string>
-    <string name="insan_adi">People Name</string>
+    <string name="gemi_adi">Craft Name : %s</string>
+    <string name="insan_adi">People Name : %s</string>
 </resources>

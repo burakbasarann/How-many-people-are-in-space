@@ -16,7 +16,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 class AppModule {
 
-    var BASE_URL = "http://api.open-notify.org/"
+    private var BASE_URL = "http://api.open-notify.org/"
     
 
     @Singleton

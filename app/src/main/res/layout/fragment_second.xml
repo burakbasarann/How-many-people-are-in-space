@@ -30,10 +30,11 @@
 
                 <ImageView
                     android:id="@+id/imghome"
-                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
                     android:layout_width="30dp"
                     android:onClick="@{() -> secondFragment.imageClickSecondFragmentToHomeFragment()}"
                     android:layout_height="30dp"
+                    android:contentDescription="@null"
                     android:src="@drawable/ic_baseline_home_24" />
 
                 <TextView

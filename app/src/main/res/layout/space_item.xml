@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <variable name="spaceList" type="com.basaran.howmanypeopleinspace.model.PeopleModel" />
+
     </data>
 
     <androidx.cardview.widget.CardView
@@ -27,7 +27,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="12dp"
                 android:textColor="@color/arkaplan"
-                android:text='@{@string/gemi_adi+" : "+spaceList.craft}'
                 android:textSize="18sp" />
 
             <TextView
@@ -37,7 +36,6 @@
                 android:layout_gravity="center"
                 android:layout_margin="12dp"
                 android:textColor="@color/arkaplan"
-                android:text='@{@string/insan_adi+" : "+spaceList.name}'
                 android:textSize="18sp" />
         </LinearLayout>
 

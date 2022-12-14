@@ -33,7 +33,7 @@ class SecondFragment : Fragment(), CraftInfo {
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_second, container, false)
         binding.secondFragment = this
         viewModel.spaceList.observe(viewLifecycleOwner, {
-            secondAdapter = SpaceAdapter(it, this)
+            secondAdapter = SpaceAdapter(it, this, requireContext())
             binding.secondAdapter = secondAdapter
         })
         return binding.root

@@ -22,5 +22,18 @@
         <action
             android:id="@+id/action_secondFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_secondFragment_to_craftInfoFragment"
+            app:destination="@id/craftInfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/craftInfoFragment"
+        android:name="com.basaran.howmanypeopleinspace.ui.CraftInfoFragment"
+        android:label="fragment_craft_info"
+        tools:layout="@layout/fragment_craft_info" >
+        <action
+            android:id="@+id/action_craftInfoFragment_to_secondFragment"
+            app:destination="@id/secondFragment"
+            app:popUpTo="@id/secondFragment" />
     </fragment>
 </navigation>

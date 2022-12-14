@@ -10,7 +10,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
 import com.basaran.howmanypeopleinspace.R
 import com.basaran.howmanypeopleinspace.databinding.FragmentHomeBinding
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.OkHttpClient
+import kotlin.properties.Delegates
 
 
 @AndroidEntryPoint
@@ -19,7 +22,11 @@ class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var viewModel: HomePageViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_home, container, false)
         binding.homePageObj = this
 
@@ -38,7 +45,8 @@ class HomeFragment : Fragment() {
     }
 
 
-    fun buttonHomeFragmentToSecondFragment(){
-        Navigation.findNavController(binding.root).navigate(R.id.action_homeFragment_to_secondFragment)
+    fun buttonHomeFragmentToSecondFragment() {
+        Navigation.findNavController(binding.root)
+            .navigate(R.id.action_homeFragment_to_secondFragment)
     }
 }

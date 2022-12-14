@@ -11,11 +11,12 @@ import androidx.navigation.Navigation
 import com.basaran.howmanypeopleinspace.R
 import com.basaran.howmanypeopleinspace.adapter.SpaceAdapter
 import com.basaran.howmanypeopleinspace.databinding.FragmentSecondBinding
+import com.basaran.howmanypeopleinspace.model.CraftInfo
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class SecondFragment : Fragment() {
+class SecondFragment : Fragment(), CraftInfo {
 
     private lateinit var binding: FragmentSecondBinding
     private lateinit var viewModel: SecondFragmentViewModel
@@ -32,7 +33,7 @@ class SecondFragment : Fragment() {
         binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_second, container, false)
         binding.secondFragment = this
         viewModel.spaceList.observe(viewLifecycleOwner, {
-            secondAdapter = SpaceAdapter(it)
+            secondAdapter = SpaceAdapter(it, this)
             binding.secondAdapter = secondAdapter
         })
         return binding.root
@@ -40,6 +41,21 @@ class SecondFragment : Fragment() {
 
     fun imageClickSecondFragmentToHomeFragment(){
         Navigation.findNavController(binding.root).navigate(R.id.action_secondFragment_to_homeFragment)
+    }
+
+    override fun passData(position: Int, craftName: String, peopleName: String) {
+        val bundle = Bundle()
+        bundle.putInt("input_pos", position)
+        bundle.putString("input_name", craftName)
+        bundle.putString("input_image", peopleName)
+
+        val transaction = this.parentFragmentManager.beginTransaction()
+        val frag2 = CraftInfoFragment()
+        frag2.arguments = bundle
+
+        transaction.replace(R.id.fragmentContainerView, frag2)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
 }

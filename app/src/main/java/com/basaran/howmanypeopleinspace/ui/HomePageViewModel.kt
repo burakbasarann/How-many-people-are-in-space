@@ -11,8 +11,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomePageViewModel @Inject constructor(private val srepo: SpaceDaoRepository) : ViewModel() {
-    private var _spaceNumber = MutableLiveData<Int>()
-    val spaceNumber: LiveData<Int> get() = _spaceNumber
+        private var _spaceNumber = MutableLiveData<Int>()
+        val spaceNumber: LiveData<Int> get() = _spaceNumber
 
     init{
         getSpaceNumber()
